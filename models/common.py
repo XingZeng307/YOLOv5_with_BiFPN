@@ -260,6 +260,9 @@ class Concat(nn.Module):
             weight = w / (torch.sum(w, dim=0) + self.epsilon)
             x = self.conv(self.swish(weight[0] * x[0] + weight[1] * x[1] + weight[2] * x[2]))
 
+        return x
+
+
 class NMS(nn.Module):
     # Non-Maximum Suppression (NMS) module
     conf = 0.25  # confidence threshold
